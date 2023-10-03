@@ -45,6 +45,7 @@ export class OrderComponent implements OnInit {
     this.mainCourseVegForm = this.fb.group({
       items: this.fb.array([]),
       itemNonveg: this.fb.array([]),
+      foodCount: [0]
     });
     this.brevegrageForm = this.fb.group({
       items: this.fb.array([]),
