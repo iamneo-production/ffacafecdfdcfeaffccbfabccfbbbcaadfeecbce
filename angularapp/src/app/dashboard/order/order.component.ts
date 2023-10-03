@@ -25,6 +25,7 @@ export class OrderComponent implements OnInit {
   mainCourseVegForm: FormGroup;
   mainCourseNonVegForm: FormGroup;
   brevegrageForm: FormGroup;
+  itemStarter: FormArray;
   isSelected: boolean = true;
   isSelectedVeg: boolean = true;
   KartItems=[];
@@ -45,11 +46,16 @@ export class OrderComponent implements OnInit {
     this.mainCourseVegForm = this.fb.group({
       items: this.fb.array([]),
       itemNonveg: this.fb.array([]),
-      foodCount: [0]
+      foodCount: [0],
     });
     this.brevegrageForm = this.fb.group({
       items: this.fb.array([]),
     });
+    this.itemStarter = this.mainCourseVegForm.get('itemStarter') as FormArray;
+    this.itemStarter.push(this.fb.group({
+      foodCount: [0, Validators.min(0)],
+      // Add more controls as needed
+    }));
     this.service.getAllMenu().subscribe((res) => {
       if (!res['error']) {
         this.allMenuList = res['data'];
