@@ -31,6 +31,7 @@ receivedData
     this.service.data$.subscribe((data) => {
       this.receivedData = data;
     });
+    console.log("received data on ngoninit",this.receivedData)
   }
   handleDate(date){
     if(date=='today'){
