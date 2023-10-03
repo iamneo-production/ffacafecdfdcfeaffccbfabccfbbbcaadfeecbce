@@ -59,7 +59,7 @@ if (cxidJSON !== null && cxidJSON !== undefined) {
 const cxNameJSON = localStorage.getItem('userData');
 let cxName
 if (cxNameJSON !== null && cxNameJSON !== undefined) {
-cxid = JSON.parse(cxNameJSON)['name'];
+  cxName = JSON.parse(cxNameJSON)['name'];
 }
      const formdata ={
        menuItems : this.menuItem,
