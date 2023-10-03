@@ -51,17 +51,22 @@ export class OrderBillingComponent implements OnInit,OnChanges {
       this.KartItems.forEach((val)=>{
         this.menuItem.push(val._id)
      })
-     const tableNumberJson = localStorage.getItem('tableNumber');
-
-if (tableNumberJson !== null && tableNumberJson !== undefined) {
-  cxid = JSON.parse(tableNumberJson);
+     const cxidJSON = localStorage.getItem('userData');
+     let cxid
+if (cxidJSON !== null && cxidJSON !== undefined) {
+  cxid = JSON.parse(cxidJSON)['_id'];
+}
+const cxNameJSON = localStorage.getItem('userData');
+let cxName
+if (cxNameJSON !== null && cxNameJSON !== undefined) {
+cxid = JSON.parse(cxNameJSON)['name'];
 }
      const formdata ={
        menuItems : this.menuItem,
-       customerId:JSON.parse(localStorage.getItem('userData'))['_id'],
+       customerId:cxid,
        description:"new order",
        totalPrice:300,
-       customerName:JSON.parse(localStorage.getItem('userData'))['name'],
+       customerName:cxName,
      }
      this.service.addCart(formdata).subscribe(res=>{
       this.showpaynow = 'Place Order'
