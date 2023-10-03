@@ -1,0 +1,24 @@
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #F8F7FC;}
+.btn-outline{
+  border: 1px solid #236BAF;
+    border-radius: 8px;
+    padding: 10px 10px;
+    background: white;
+    font-weight: 500;
+}
+.btnn{
+  background-color: #236BAE;
+  border-radius: 8px;
+  color: white;
+  padding: 10px;
+  border: 1px solid;
+}
+.addItem-dialog>.mat-dialog-container {
+  /* add your styles */
+  padding:0.6em !important;
+}
+button:disabled{
+  opacity: 0.8;
+}

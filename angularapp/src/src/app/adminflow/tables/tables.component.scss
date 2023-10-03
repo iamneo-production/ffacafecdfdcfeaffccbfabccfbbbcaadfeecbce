@@ -1,0 +1,128 @@
+.title{
+  border-bottom: 1px solid lightgray;
+  padding: 10px 30px;
+  position: sticky;
+    top: 0px;
+    z-index: 0;
+    background: white;
+}
+.button{
+  border: 1px dashed;
+  padding: 20px 20px;
+  width: 100%;
+  border-radius: 10px;
+  background: #f3f3f3;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 23px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  // z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: 0.4s;
+  border: 3px solid #707070;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 2px;
+  bottom: 2.164px;
+  background-color: #707070;
+  transition: 0.4s;
+
+}
+.markasalloted .slider:before, .markaserved .slider:before{
+  background-color: #707070;
+}
+.markasalloted .slider,.markaserved .slider{
+  border: 3px solid #707070;
+}
+
+input:checked + .slider {
+  background-color: white;
+  border-color: #00A1D1;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px white;
+}
+
+.markaserved input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #00A516;
+
+}
+.markaserved input:checked + .slider{
+  border-color: #00A516;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px white;
+
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #00A1D1;
+  left: -7px;
+}
+.markasalloted input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color: #00A516;
+}
+.markasalloted input:checked + .slider {
+  border-color: #00A516;
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.card{
+  border: none;
+  box-shadow: 0px 0px 8px lightgray;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+.addTableBtn{
+  padding: 10px;
+  width: auto;
+}
+.card::-webkit-scrollbar{
+  width: 5px;
+}
+.card::-webkit-scrollbar-thumb{
+  background-color: #236BAE;
+  border-radius: 16px;
+}
+.card::-webkit-scrollbar-track{
+  background-color: white;
+  border-radius: 16px;
+
+}

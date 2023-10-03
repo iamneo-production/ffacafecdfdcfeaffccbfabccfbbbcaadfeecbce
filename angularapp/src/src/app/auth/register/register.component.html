@@ -1,0 +1,109 @@
+<div class="container-fluid h-100">
+  <div class="card h-100">
+    <div class="row h-100">
+      <div class="col-md-6 col-lg-7 col-xl-8">
+        <div class="login">
+          <div class="loginform">
+            <div class="logo">
+              <img src="../../../assets/logo.png">
+            </div>
+            <div class="title mt-4">
+              <h1 class="mb-1">Create Account</h1>
+              <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small>
+            </div>
+            <div class="form">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group mt-3">
+                  <label class="d-block">Full Name</label>
+                  <div class="position-relative">
+                  <input class="input" type="text" placeholder="Name" formControlName="name">
+                  <div class="icon">
+                    <img src="../../../assets/fullnameicon.svg" class="pe-2" alt="">
+                    <span class="line"></span>
+                  </div>
+                  <div
+                  *ngIf="(registerFormControl.name.touched || submitted) && registerFormControl.name.errors?.required">
+                  <p class="text-danger">name is required</p>
+                </div>
+                <p *ngIf="registerFormControl.name.touched && registerFormControl.name.errors?.pattern && registerFormControl.name.errors?.minLength"
+                  class="text-danger">This is invalid name!</p>
+                </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label class="d-block">Email</label>
+                  <div class="position-relative">
+                  <input class="input" type="text" placeholder="example@gmail.com" formControlName="email" >
+                  <div class="icon">
+                    <img src="../../../assets/mailicon.svg" class="pe-2" alt="">
+                    <span class="line"></span>
+                  </div>
+                  <div
+                  *ngIf="(registerFormControl.email.touched || submitted) && registerFormControl.email.errors?.required">
+                  <p class="text-danger">email is required</p>
+                </div>
+                <p *ngIf="registerFormControl.email.touched && registerFormControl.email.errors?.pattern"
+                  class="text-danger">This is invalid email!</p>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label class="d-block">Phone No.</label>
+                  <div class="position-relative">
+                  <input class="input" type="text" placeholder="9654645671" formControlName="phoneNo">
+                  <div class="icon">
+                    <img src="../../../assets/mailicon.svg" class="pe-2" alt="">
+                    <span class="line"></span>
+                  </div>
+                  <div
+                  *ngIf="(registerFormControl.phoneNo.touched || submitted) && registerFormControl.phoneNo.errors?.required">
+                  <p class="text-danger">phoneNo is required</p>
+                </div>
+                <p *ngIf="registerFormControl.phoneNo.touched && registerFormControl.phoneNo.errors?.pattern"
+                  class="text-danger">This is invalid phoneNo!</p>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label class="d-block">Password</label>
+                  <div class="position-relative">
+                  <input class="input" type="{{ isPasswordVisible ? 'text' : 'password' }}" placeholder="********" formControlName="password">
+                  <div class="icon">
+                    <img src="../../../assets/passwordicon.svg" class="pe-2" alt="">
+                    <span class="line"></span>
+                  </div>
+                  <div class="passwordicon">
+                    <i (click)="togglePasswordVisibility()" class="fa" [ngClass]="isPasswordVisible ? 'fa fa-eye':'fa fa-eye-slash'" aria-hidden="true"></i>
+                  </div>
+                  <div
+                  *ngIf="(registerFormControl.password.touched || submitted) && registerFormControl.password.errors?.required">
+                  <p class="text-danger">Password is required</p>
+                </div>
+                <p *ngIf="registerFormControl.password.touched && registerFormControl.password.errors?.pattern"
+                  class="text-danger">This is invalid password!</p>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label class="d-block">Role</label>
+                  <mat-radio-group aria-label="Select an option" formControlName="role">
+                    <mat-radio-button value="user">User</mat-radio-button>
+                    <mat-radio-button class="ms-4" value="admin">Admin</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="form-group text-center mt-3">
+                  <button type="submit" class="btn submitbtn" [disabled]="registerForm.invalid">Register</button>
+                </div>
+                <div class="form-group text-center mt-4">
+                  <small>Already have an account? <a routerLink="/login">Sign in</a> </small>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-5  col-xl-4">
+        <img src="../../../assets/register.png" class="w-100 h-100">
+      </div>
+
+    </div>
+  </div>
+
+</div>

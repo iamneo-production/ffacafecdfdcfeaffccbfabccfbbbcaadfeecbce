@@ -1,0 +1,54 @@
+
+
+  <div class="cart">
+    <div class="container-fluid mt-3">
+      <div class="row">
+        <div class="col-12 col-sm-12  col-md-12 col-lg-12">
+          <div class="card text-center text-white">
+           <div class="title text-center">
+            <h1 class="text-white">Cart</h1>
+           </div>
+            <form>
+              <div class="fooditem">
+                <div class="d-flex align-items-center justify-content-between mb-4" *ngFor="let fooditem of food">
+                  <div class="d-block" >
+                    {{fooditem}}
+
+                  </div>
+                  <div>
+                    Rs.100/-
+                    <div class="wrapper">
+                      <button class="plusminus" style="border-right: 1px solid;" (click)="handleMinus()">-</button>
+                      <input type="number" class="num"  min="0" max="100" value="0" [(ngModel)]="value" [ngModelOptions]="{ standalone: true }"/>
+                      <button class="plusminus" (click)="handlePlus()">+</button>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+             <div class="footer-cart">
+              <div class="desc">
+                <textarea rows="5" cols="10" class="w-100" placeholder="Please provide any cooking instructions needed"></textarea>
+              </div>
+              <div class="desc d-flex align-items-center justify-content-between">
+               <div>
+                <label>Total Payables</label>
+               </div>
+               <div>
+                Rs.200/-
+               </div>
+              </div>
+              <div class="text-end">
+                <button class="submitbtn">Place Order</button>
+              </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

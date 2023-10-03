@@ -1,0 +1,79 @@
+
+.login-title{
+  color: white;
+  margin-top: 1rem;
+}
+.login-title h1{
+  margin-bottom: 0px;
+  font-size: 39px;
+  font-weight: 500;
+}
+.forms{
+  padding: 2rem 4rem 0rem;
+}
+.passwordicon{
+  position: absolute;
+    top: 37%;
+    right: 0px;
+    transform: translate(-50%,-50%);
+}
+.btn-text{
+  font-size: 16px;
+}
+:host::ng-deep.mat-form-field{
+  width: 100%;
+}
+.submitbtn{
+  width: 100%;
+  background: #E6AA0A;
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  font-weight: bold;
+}
+.forgot{
+  color: #E6AA0A;
+}
+.card {
+  background-color: rgb(159 159 159 / 39%);
+  border-radius: 17px;
+  border: 1px solid white;
+  color: #333;
+  font-family: sans-serif;
+  line-height: 1.5;
+  padding: 1rem 2rem;
+}
+:host::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline-start, .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    min-width: 0px;
+}
+
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .modal {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .warning {
+    display: none;
+  }
+}
+:host ::ng-deep mat-form-field .mat-form-field-outline-start {
+  background-color: white !important;
+}
+
+:host ::ng-deep mat-form-field .mat-form-field-outline-gap {
+  background-color: white !important;
+}
+
+:host ::ng-deep mat-form-field .mat-form-field-outline-end {
+  background-color: white !important;
+}
+:host::ng-deep.mat-form-field-label{
+  background-color: transparent;
+}
+@media screen and (max-width:992px){
+  .forms {
+    padding: 2rem 0rem 0rem;
+}
+}
