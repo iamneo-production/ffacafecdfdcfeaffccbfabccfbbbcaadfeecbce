@@ -125,6 +125,9 @@ export class OrderComponent implements OnInit {
   handleItemAdd(type, index,item) {
     if(localStorage.getItem('token')){
 console.log("Type :",type)
+console.log("Index",index)
+console.log("Item",item)
+console.log("this.itemStarter.controls",this.itemStarter.controls)
       if (type == 'desert') {
         this.item.controls[index]['controls']['foodCount'].patchValue(
           this.item.controls[index]['controls']['foodCount'].value + 1
