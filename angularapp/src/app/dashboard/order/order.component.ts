@@ -145,9 +145,9 @@ export class OrderComponent implements OnInit {
         this.itemMainCourseNonVeg.controls[index]['controls']['foodCount'].patchValue(
           this.itemMainCourseNonVeg.controls[index]['controls']['foodCount'].value + 1
         );
-      } else if (type.includes('breverage')) {
-        this.itemBrevegrage.controls[index]['controls']['foodCount'].patchValue(
-          this.itemBrevegrage.controls[index]['controls']['foodCount'].value + 1
+      } else {
+        this.itemBrevegrage?.controls[index]['controls']['foodCount'].patchValue(
+          this.itemBrevegrage?.controls[index]['controls']['foodCount'].value + 1
         );
       }
       const cartItem = this.KartItems.find((c) => c['_id'] === item['_id']);
