@@ -138,8 +138,10 @@ console.log("this.itemStarter.controls",this.itemStarter.controls)
         // );
         
         // this.itemStarter.value.foodCount.patchValue()
-        const foodCountControl = this.itemStarter.at(index).get('foodCount');
-
+        // const foodCountControl = this.itemStarter.at(index).get('foodCount');
+        // if (foodCountControl) {
+          this.itemStarter.patchValue.valuefoodCount.value + 1);
+        // }
       }else if (type == 'starter-nonveg') {
         this.itemNonVegStarter.controls[index]['controls']['foodCount'].patchValue(
           this.itemNonVegStarter.controls[index]['controls']['foodCount'].value + 1
