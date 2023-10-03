@@ -34,6 +34,7 @@ logintime
   onSubmit(){
     this.submitted = true;
    this.service.login(this.loginForm.value).subscribe((res)=>{
+    console.log("Response : ", res)
     if(!res.error){
       this.loginForm.reset()
       localStorage.setItem('token',res.token)
