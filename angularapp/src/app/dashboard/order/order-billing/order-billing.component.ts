@@ -51,6 +51,11 @@ export class OrderBillingComponent implements OnInit,OnChanges {
       this.KartItems.forEach((val)=>{
         this.menuItem.push(val._id)
      })
+     const tableNumberJson = localStorage.getItem('tableNumber');
+
+if (tableNumberJson !== null && tableNumberJson !== undefined) {
+  cxid = JSON.parse(tableNumberJson);
+}
      const formdata ={
        menuItems : this.menuItem,
        customerId:JSON.parse(localStorage.getItem('userData'))['_id'],

@@ -135,9 +135,12 @@ console.log("Index",index)
 console.log("Item",item)
 console.log("this.itemStarter.controls",this.itemStarter.controls)
       if (type == 'desert') {
-        this.item.controls[index]['controls']['foodCount'].patchValue(
-          this.item.controls[index]['controls']['foodCount'].value + 1
-        );
+        if (this.item && this.item.at(index)) {
+          const foodCountControl = this.item.at(index).get('foodCount');
+          if (foodCountControl) {
+            foodCountControl.patchValue(0);
+          }
+        }
       } else if (type == 'starter-veg') {
         if (this.item && this.item.at(index)) {
           const foodCountControl = this.item.at(index).get('foodCount');
@@ -149,21 +152,33 @@ console.log("this.itemStarter.controls",this.itemStarter.controls)
         //   this.itemStarter.controls[index]['controls']['foodCount'].value + 1
         // );
       }else if (type == 'starter-nonveg') {
-        this.itemNonVegStarter.controls[index]['controls']['foodCount'].patchValue(
-          this.itemNonVegStarter.controls[index]['controls']['foodCount'].value + 1
-        );
+        if (this.item && this.item.at(index)) {
+          const foodCountControl = this.item.at(index).get('foodCount');
+          if (foodCountControl) {
+            foodCountControl.patchValue(0);
+          }
+        }
       } else if (type == 'main-veg') {
-        this.itemMainCourse.controls[index]['controls']['foodCount'].patchValue(
-          this.itemMainCourse.controls[index]['controls']['foodCount'].value + 1
-        );
+        if (this.item && this.item.at(index)) {
+          const foodCountControl = this.item.at(index).get('foodCount');
+          if (foodCountControl) {
+            foodCountControl.patchValue(0);
+          }
+        }
       }else if (type == 'main-nonveg') {
-        this.itemMainCourseNonVeg.controls[index]['controls']['foodCount'].patchValue(
-          this.itemMainCourseNonVeg.controls[index]['controls']['foodCount'].value + 1
-        );
+        if (this.item && this.item.at(index)) {
+          const foodCountControl = this.item.at(index).get('foodCount');
+          if (foodCountControl) {
+            foodCountControl.patchValue(0);
+          }
+        }
       } else {
-        this.itemBrevegrage?.controls[index]['controls']['foodCount'].patchValue(
-          this.itemBrevegrage?.controls[index]['controls']['foodCount'].value + 1
-        );
+        if (this.item && this.item.at(index)) {
+          const foodCountControl = this.item.at(index).get('foodCount');
+          if (foodCountControl) {
+            foodCountControl.patchValue(0);
+          }
+        }
       }
       const cartItem = this.KartItems.find((c) => c['_id'] === item['_id']);
 
@@ -197,11 +212,12 @@ console.log("this.itemStarter.controls",this.itemStarter.controls)
   handleItemMinus(type, index,item) {
     if(localStorage.getItem('token')){
     if (type.includes('desert')) {
-      this.item?.controls[index]['controls']['foodCount'].patchValue(
-        this.item?.controls[index]['controls']['foodCount'].value == 0
-          ? 0
-          : this?.item.controls[index]['controls']['foodCount'].value - 1
-      );
+            if (this.item && this.item.at(index)) {
+        const foodCountControl = this.item.at(index).get('foodCount');
+        if (foodCountControl) {
+          foodCountControl.patchValue(0);
+        }
+      }
     } else if (type == 'starter-veg') {
       if (this.item && this.item.at(index)) {
         const foodCountControl = this.item.at(index).get('foodCount');
