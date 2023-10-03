@@ -36,8 +36,8 @@ export class OrderBillingComponent implements OnInit,OnChanges {
   ngOnInit(): void {
     this.admionService.gettableNo().subscribe(res=>{
       console.log(res);
-      this.TableNumber = parseInt(localStorage.getItem('tableNo'));
-      console.log(this.TableNumber);
+      this.TableNumber = parseInt(localStorage.getItem('tableNumber'));
+
     })
   }
 
@@ -90,7 +90,7 @@ export class OrderBillingComponent implements OnInit,OnChanges {
       menuItems : this.menuItem,
       customerId:JSON.parse(localStorage.getItem('userData'))['_id'],
       description:"new order",
-      totalPrice:this.addTotal + this.serviceCharge,
+      totalPrice:300,
       tableNo:this.TableNumber,
       status:"placed"
     }

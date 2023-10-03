@@ -22,7 +22,7 @@ time:any
 
     this.name=localStorage.getItem('name')
     this.email=localStorage.getItem('email')
-    this.tableno=JSON.parse(localStorage.getItem('tableNo'))
+    this.tableno=JSON.parse(localStorage.getItem('tableNumber'))
     this.name=JSON.parse(localStorage.getItem('userData'))
     this.date=localStorage.getItem('date')
     this.time=localStorage.getItem('time')
