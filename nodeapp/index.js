@@ -37,7 +37,7 @@ const corsOptions ={
 app.use(cors(corsOptions)) // Use this after the variable declaration
 
 
-const dbUrl='mongodb+srv://abhishek:abhishek03@democluster.9m513.mongodb.net/iamneoFoodApp?retryWrites=true&w=majority'
+const dbUrl='mongodb://localhost:27017'
 mongoose.connect(
     dbUrl,{
         useNewUrlParser:true,
