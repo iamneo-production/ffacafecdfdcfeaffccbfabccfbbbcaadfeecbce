@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl:"http://localhost:8080"
+  baseUrl:"http://8080-ffacafecdfdcfeaffccbfabccfbbbcaadfeecbce.premiumproject.examly.io"
 };
 
 /*
