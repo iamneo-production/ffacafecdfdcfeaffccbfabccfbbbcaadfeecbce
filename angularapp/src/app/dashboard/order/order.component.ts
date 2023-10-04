@@ -123,6 +123,8 @@ export class OrderComponent implements OnInit {
     return this.brevegrageForm.get('items') as FormArray;
   }
   handleItemAdd(type, index,item) {
+    console.log("index",index)
+    console.log("Type",type)
     if(localStorage.getItem('token')){
 
       if (type == 'desert') {
