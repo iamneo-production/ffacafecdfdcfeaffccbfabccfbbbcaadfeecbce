@@ -1,0 +1,243 @@
+<div style="background-color: #F8F7FC;"  class="h-100">
+    <div style="background-color: #F8F7FC;" class="col-md-12 d-flex p-4 container-fluid w-100">
+        <div class="col-md-8">
+          <div class="m-5">
+            <h1 class="paymentHeading">Choose your payment method</h1>
+            <div class="card ordercard">
+              <mat-tab-group  (selectedTabChange)="onTabChange($event)">
+                <mat-tab class="selectPayment">
+                  <ng-template mat-tab-label>
+                    <div >
+                      <button class="btn iconActivated p-0">
+                        <!-- <img
+                          src="../../../assets/paymentGateway/creditCard.svg"
+                          height="25px"
+                          width="25px"
+                          alt=""
+                        /> -->
+                        <img [ngClass]="imageFlag ? 'svgHeight' : 'imageHeight'"
+                        [src]="imageFlag ? '../../../assets/paymentGateway/Group 846.png' : '../../../assets/paymentGateway/Group 844.png'"
+                        alt="credit card"
+
+                      />
+                      </button>
+                    </div>
+                    <div>Credit Card</div>
+                  </ng-template>
+                  <div class="mb-5">
+                    <div class="mt-5 mx-5 row">
+                      <div class="cardnumberTitle">Card Number</div>
+                      <div class="input_wrap w-100">
+                        <input
+                          class="w-100 cardnumber"
+                          type="text"
+                          required
+                          maxlength="16"
+                          id="card_number"
+                          placeholder="1234 1234 1234 1234"
+                        />
+                      </div>
+                    </div>
+                    <div class="mt-4 mx-5 row">
+                      <div class="col-md-6">
+                        <div class="cardnumberTitle">CVV Number</div>
+                        <div class="input_wrap w-100">
+                          <input
+                            class="w-100 cardnumber"
+                            type="text"
+                            required
+                            maxlength="3"
+                            id="card_number"
+                            placeholder="- - -"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="cardnumberTitle">Expiry Date</div>
+                        <div class="input_wrap w-100">
+                          <input
+                            class="w-100 cardnumber"
+                            type="text"
+                            required
+                            maxlength="5"
+                            id="card_number"
+                            placeholder="MM/YYYY"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-4 mx-5 row">
+                      <div class="cardnumberTitle">Name On Card</div>
+                      <div class="input_wrap w-100">
+                        <input
+                          class="w-100 cardnumber"
+                          type="text"
+                          required
+                          id="card_number"
+                          placeholder="Name"
+                        />
+                      </div>
+                    </div>
+                    <!-- <input type="text" placeholder="9876 9876 9876 9876"> -->
+                  </div>
+                  </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <div>
+                        <button class="btn iconActivated p-0">
+                            <img [ngClass]="upiFlag ? 'svgHeight' : 'imageHeight'"
+                            [src]="!upiflag ? '../../../assets/paymentGateway/Group 847.svg' : '../../../assets/paymentGateway/Group 845.svg' "
+                            alt=""
+                          />
+                          </button>
+                    </div>
+                    <div>UPI</div>
+                  </ng-template>
+                  <div class="mb-5 upipage">
+                    <div class="upiText">
+                        You have selected UPI Payment mode.
+                    </div>
+                  </div>
+                </mat-tab>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <div>
+                        <button class="btn iconActivated">
+                            <img [ngClass]="cashFlag ? 'svgHeight' : 'imageHeight'"
+                            [src]="cashFlag ? '../../../assets/paymentGateway/Group 843.png' : '../../../assets/paymentGateway/Group 848.png' "
+                              alt=""
+                            />
+                          </button>
+                    </div>
+                    <div>Cash</div>
+                  </ng-template>
+                  <div class="mb-5 upipage">
+                    <div class="upiText">
+                        You have selected Cash Payment mode.
+                    </div>
+</div>
+                </mat-tab>
+                <mat-tab label="Beverages">
+                  <ng-template mat-tab-label>
+                    <div>
+                        <button class="btn iconActivated">
+                            <img [ngClass]="ewalletFlag ? 'svgHeight' : 'imageHeight'"
+                              src="../../../assets/paymentGateway/eWallet.svg"
+                            [src]="ewalletFlag ? '../../../assets/paymentGateway/Group 842.png' : '../../../assets/paymentGateway/Group 849@2x.png' "
+                              alt=""
+                            />
+                          </button>
+                    </div>
+                    <div>E-Wallet</div>
+                  </ng-template>
+                  <div class="mb-5 upipage">
+                    <div class="upiText">
+                        You have selected E-Wallet Payment mode.
+                    </div>
+                </div>
+                </mat-tab>
+              </mat-tab-group>
+                       </div>
+            <div></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mt-5">
+                <h1 class="summaryHeading">Summary</h1>
+            </div>
+            <div class="subtotalamount">
+                <div class="subTotal col-md-6">Sub Total </div>
+                <div class="totalamount col-md-6">₹ {{totalPrice}} /-</div>
+            </div>
+            <div class="subtotalamount mt-4">
+                <div class="subTotal col-md-6">Service Charges </div>
+                <div class="totalamount col-md-6">₹ {{serviceCharge}} /-</div>
+            </div>
+            <div class="alltotalamount">
+                <div class="Totalpay col-md-6">Total Payables</div>
+                <div class="totalamount col-md-6">₹ {{+totalPrice + +serviceCharge}} /-</div>
+            </div>
+            <div class="itemDis">
+                <p class="itemdiscount" > Have a discount code?</p>
+            </div>
+        </div>
+      </div>
+
+      <div style="background-color: #F8F7FC;"  class="col-md-12 paymentFooter d-flex p-4 container-fluid w-100">
+          <div class="row col-md-12">
+              <div class="col-md-2 d-flex justify-content-end">
+                  <button class="backbtn btn" (click)="gobacktoorders()">Go back</button>
+              </div>
+              <div class="col-md-8 mr-3">
+                  <p class="footerText">
+                      By Clicking check out button you agree with our
+                  </p>
+                  <p class="footerText">
+                      terms and conditions and money back guarantee. Thank you for trusting our services.
+                  </p>
+              </div>
+              <div class="col-md-2 d-flex justify-content-center">
+                  <button class="Checkoutbtn btn" (click)="makePayment()"  > Check Out
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </button>
+                  <button style="display: none;" #triggerfeedBack data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+              </div>
+          </div>
+      </div>
+</div>
+
+
+<div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title feedbackTitle"  id="exampleModalLabel">Please Provide Feedback</h5>
+        <button type="button" class="close do-not-print" data-bs-dismiss="modal" aria-label="Close" #closeBtn
+        id="closebutton">
+        <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+       <p class="ratingHeading">Rating</p>
+       <div class="starRating">
+         <ngb-rating [max]="5" [(rate)]="starRating" [readonly]="false"></ngb-rating>
+        </div>
+        <div class="ratingTextoutline">
+          <form #form="ngForm">
+            <input class="ratingText form-control" ngModel name="Feedback" type="text" placeholder="Description">
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="Checkoutbtn btn" (click)="onSubmit(form)"  > Submit
+      </button>
+      </div>
+      <button style="display: none;" #closefeedback data-bs-dismiss="modal"  class="btn btn-primary"></button>
+    </div>
+  </div>
+</div>
+<button style="display: none;" data-bs-toggle="modal" #showThankyou data-bs-target="#thankyou"></button>
+
+<div class="modal fade"  id="thankyou" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header thankyouHeader">
+        <h5 class="modal-title feedbackTitle"  id="exampleModalLabel" style="visibility: hidden;"> fgh</h5>
+        <button type="button" class="close do-not-print" data-bs-dismiss="modal" aria-label="Close" #closeBtn
+        id="closebutton" routerLink="/dashboard/selecttable">
+        <span aria-hidden="true">&times;</span>
+    </button>
+      </div>
+      <div class="modal-body">
+        <div class="thankyouImg">
+          <img src="../../../assets/thankyou.svg" alt="">
+        </div>
+        <div class="thankyouImg">
+          <h2>Please visit Again!</h2>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

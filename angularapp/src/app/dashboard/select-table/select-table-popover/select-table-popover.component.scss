@@ -1,0 +1,27 @@
+.select_date_btn{
+    align-items: center;
+    display: flex;
+    height: 35px;
+    padding: 0px 10px 0px 10px;
+    background: teal;
+    border-radius: 30px;
+    margin: 6px;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+// .select_date_btn:hover{
+//     background-color: cadetblue;
+// }
+.select_date_btn_focused{
+    background-color: #164646;
+}
+:host::ng-deep.mat-form-field-wrapper{
+    width: 175px;
+}
+.time-input{
+    display: flex !important;
+    justify-content: start !important;
+    margin-left: 2em !important;
+}

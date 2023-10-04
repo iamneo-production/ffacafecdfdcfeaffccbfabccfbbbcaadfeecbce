@@ -1,0 +1,133 @@
+<div class="form">
+    <div class="heading p-0 d-flex align-items-center justify-content-between">
+    <div class="title">
+      <h2 class="mb-0">Select Time</h2>
+    </div>
+    <div class="close">
+      <i class="fa fa-times" aria-hidden="true" mat-dialog-close></i>
+    </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row col-md-10" >
+            <div class="col-md-3 select_date_btn" (click)="handleDate('today')" [class]="selecttoday?'select_date_btn_focused':''" >
+                <span >Today</span>
+            </div>
+            <div class="col-md-3 select_date_btn" [class]="selecttmrw?'select_date_btn_focused':''" >
+                <span (click)="handleDate('tomorrow')" >Tomorrow</span>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Date</mat-label>
+                    <input matInput placeholder="YYYY/MM/DD" [value]="date" readonly>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row col-md-10">
+            <div class="col-md-3 " (click)="handleTime('lunch')">
+                <button class="btn select_date_btn" [class]="selectDateLunch?'select_date_btn_focused':''" >Lunch</button>
+            </div>
+            <div class="col-md-3">
+                <button class=" select_date_btn btn" [class]="selectDateDinner?'select_date_btn_focused':''" (click)="handleTime('dinner')">Dinner</button>
+            </div>
+            <ng-container *ngIf="enableTimePicker">
+                <div class="col-md-3 time-input">
+                    <!-- <mat-form-field>
+                        <input matInput
+                        [max]="maxtime"
+                        [min]="mintime"
+                        [format]="12"
+                               name="selected_time_A"
+                               [ngxMatTimepicker]="pickerA"
+                               placeholder="4:00 PM"
+                               readonly #dateTimeValue (change)="onTimeChange($event)"/>
+
+                        <i class="fa fa-clock-o" aria-hidden="true" matSuffix (click)="pickerA.open()"></i>
+
+                    </mat-form-field>
+                    <ngx-mat-timepicker #pickerA ></ngx-mat-timepicker> -->
+                    <mat-form-field>
+                        <input matInput [ngxMatTimepicker]="picker" [max]="maxtime"
+                        [min]="mintime"
+                        [format]="12" placeholder="" [(ngModel)]="selectedTime" (ngModelChange)="onTimeChange($event)" name="selectedTime">
+                        <ngx-mat-timepicker-toggle matSuffix [for]="picker"></ngx-mat-timepicker-toggle>
+                        <ngx-mat-timepicker #picker></ngx-mat-timepicker>
+                      </mat-form-field>
+                </div>
+            </ng-container>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+            <button class="btnn" (click)="onSubmit() ">Select</button>
+        </div>
+    </div>
+    <!-- <form [formGroup]="addMenuForm">
+      <div class="container-fluid p-2 modal-body">
+        <div class="images position-relative d-flex  align-items-center mt-2 mb-2 justify-content-start"  >
+          <div class="p-3 position-relative foodimg" *ngFor="let item of foodImg" >
+            <img [src]="item.path" alt="" class="dishImg w-100" (click)="selectItem(item)">
+            <input type="text" style="visibility: hidden;" [value]="item.path"
+            [formControlName]="item.id"
+            >
+            <i  [ngClass]="item.selected?'d-block':'d-none'" class="fa fa-check-circle check-icon" aria-hidden="true" style="font-size: 24px;"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group ">
+            <mat-label style="font-weight:500">Item Name</mat-label>
+            <mat-form-field appearance="outline" class="form-field-mat">
+              <input matInput placeholder="Item Name" formControlName="item_name">
+              <mat-error class="mt-2" *ngIf="addMenuForm.controls.item_name.errors?.required">Item Name is required.</mat-error>
+              <mat-error class="mt-2" *ngIf="addMenuForm.controls.item_name.errors?.pattern">Item Name is invalid.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group ">
+            <mat-label style="font-weight:500">Item Category</mat-label>
+            <mat-form-field appearance="outline" class="form-field-mat"id="categorydrop">
+              <mat-select disableRipple  formControlName="item_category">
+                <mat-option value="starter">Starter</mat-option>
+                <mat-option value="main course">Main Course</mat-option>
+                <mat-option value="desserts">Desserts</mat-option>
+                <mat-option value="breverage">Brevegrage</mat-option>
+              </mat-select>
+              <mat-error class="mt-2">Item Category is required.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group ">
+            <mat-label style="font-weight:500">Sub Category</mat-label>
+            <mat-form-field appearance="outline" class="form-field-mat" id="categorydrop">
+              <mat-select disableRipple  formControlName="sub_category">
+                <mat-option value="veg">Veg</mat-option>
+                <mat-option value="nonveg">Non-Veg</mat-option>
+              </mat-select>
+              <mat-error class="mt-2">Sub-Category is required.</mat-error>
+
+            </mat-form-field>
+          </div>
+          <div class="form-group ">
+            <mat-label style="font-weight:500">Description</mat-label>
+            <mat-form-field appearance="outline" class="form-field-mat">
+              <input matInput placeholder="Description" type="address"  formControlName="description">
+              <mat-error class="mt-2">Description is required.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group ">
+            <mat-label style="font-weight:500">Price</mat-label>
+            <mat-form-field appearance="outline" class="form-field-mat">
+              <input matInput placeholder="Price"  formControlName="price">
+              <mat-error class="mt-2" *ngIf="addMenuForm.controls.price.errors?.required">Price is required.</mat-error>
+              <mat-error class="mt-2" *ngIf="addMenuForm.controls.price.errors?.pattern">Price is invalid.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group ">
+            <input type="checkbox"> Mark as Special item
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <div class="w-75">
+          <button class="submitbtn btn" (click)="handleItemAdd()" id="submitbtn">Add</button>
+        </div>
+      </div>
+
+    </form> -->
+  </div>
